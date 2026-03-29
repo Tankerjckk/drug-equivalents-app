@@ -1,3 +1,4 @@
+import os
 import re
 import unicodedata
 
@@ -9,13 +10,18 @@ app = FastAPI(title="Drug Equivalents API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://drug-equivalents-app.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-DATABASE_URL = "postgresql+psycopg://drugs_user:drugs_pass@127.0.0.1:55432/drugs"
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL is not set")
 engine = create_engine(DATABASE_URL)
 
 def clean_text(value: str | None) -> str | None:
