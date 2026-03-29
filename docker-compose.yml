@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:16
+    container_name: drug_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: drugs
+      POSTGRES_USER: drugs_user
+      POSTGRES_PASSWORD: drugs_pass
+    ports:
+      - "55432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+

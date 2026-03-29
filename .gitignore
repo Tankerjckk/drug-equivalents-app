@@ -1,0 +1,37 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/*.pyc
+
+# Node / Next
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Local database / dumps
+*.sql
+*.dump
+
+# Large data files
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.json
+
+# Optional uploads / temp
+tmp/
+temp/
